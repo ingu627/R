@@ -3,7 +3,10 @@
 ## -------------------------------------------------------------------- ##
 df <- data.frame(sex = c("M", "F", NA, "M", "F"),
                  score = c(5, 4, 3, 4, NA))
+# 문자인 경우 <NA>가 나옴
+
 df
+str(df)
 
 is.na(df)               # 결측치 확인
 table(is.na(df))        # 결측치 빈도 출력
@@ -26,15 +29,32 @@ sum(df_nomiss$score)                       # score 합계 산출
 df_nomiss <- df %>% filter(!is.na(score) & !is.na(sex))  # score, sex 결측치 제거
 df_nomiss                                                # 출력
 
+df
+# omit 함수 : 결측값이 있는 행을 제거
+
 df_nomiss2 <- na.omit(df)  # 모든 변수에 결측치 없는 데이터 추출
 df_nomiss2                 # 출력
+
+complete.cases(df) # 결측값이 있으면 boolean
+df
+
+df[complete.cases(df),] #na.omit(df)
+
+df[!is.na(df)] #NA만 출력 
+df #NA가 아닌것들만 출력
+
+df[is.na(df)]=0
+df
 
 
 ## -------------------------------------------------------------------- ##
 mean(df$score, na.rm = T)  # 결측치 제외하고 평균 산출
 sum(df$score, na.rm = T)   # 결측치 제외하고 합계 산출
 
-exam <- read.csv("csv_exam.csv")  # 데이터 불러오기
+getwd()
+setwd('F:/R_pr/do_it_practice')
+library(dplyr)
+exam <- read.csv("./data/csv_exam.csv")  # 데이터 불러오기
 exam[c(3, 8, 15), "math"] <- NA   # 3, 8, 15행의 math에 NA 할당
 exam
 
