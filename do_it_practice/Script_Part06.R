@@ -369,5 +369,17 @@ group_all <- bind_rows(group_a, group_b)
 # bind_rows(), bind_cols() 함수는 벡터에 대해 적용 안됨
 
 # 도움말 - 함수이름{패키지이름}
-
-
+# 
+#         입력            출력
+# apply   배열(2차원 이상)   베열
+# lapply  리스트         리스트
+# sapply  리스트.벡터  벡터, 배열
+# tapply  리스트.벡터  벡터, 배열
+# mapply  리스트.벡터  벡터, 배열
+# vapply  리스트.벡터  벡터, 배열
+# 
+# x <- matrix(1:9, c(3,3))
+# x
+# apply(x, 1, function(X) {x*2})
+# 
+# apply(c(1,2,3), 1, function(x))
