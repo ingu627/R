@@ -239,3 +239,20 @@ b
 #어떤 사람이 중간고사를 85점 받았다면 기말고사 예측?
 yhat<-s*85+b
 print(yhat)
+
+# iris
+# 150건 데이터
+# 1~100번까지 데이터 추출 ->   Petal.Length Petal.Width 열 저장
+# -> 회귀모델 : 독립변수(Petal.Length), 종속변수(Petal.Width)
+# -> 회귀모델의 기울기, 절편 구해지면
+# 
+# 101번~150번까지 데이터 추출 ->   Petal.Length Petal.Width 열 저장
+# -> 이미 구한 회귀모델의 기울기, 절편을 이용하여 Petal.Length를
+# 입력했을때 Petal.Width 예측하여 출력
+# 
+# cost도 함께 출력(예측값 - 실제값) 제곱의 평균
+str(iris)
+Petal.Length <- iris$Petal.Length[1:100]
+Petal.Width <- iris$Petal.Width[1:100]
+lm(Petal.Width~Petal.Length) # -0.3064        0.3818  
+
