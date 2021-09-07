@@ -24,6 +24,9 @@ y1<-c(5,6,7,8,9,10)
 a<-rbind(x1, y1)
 a
 dist(a)
+# 행 사이의 거리 
+sqrt(5*5 + 14*14 + 6*6 + 6*6 + 6*6 + 6*6)
+# 이거와 같음
 
 teens<-read.csv('F:/data/snsdata.csv')
 str(teens)
@@ -89,7 +92,7 @@ head(teens,5)
 interests<-teens[5:40]
 interests
 
-5개 클러스터 생성
+# 5개 클러스터 생성
 
 str(interests)
 #각 열의 최소값/최대값
