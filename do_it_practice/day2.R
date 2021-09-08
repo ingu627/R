@@ -29,7 +29,10 @@ sqrt(5*5 + 14*14 + 6*6 + 6*6 + 6*6 + 6*6)
 # 이거와 같음
 
 teens<-read.csv('F:/data/snsdata.csv')
+# str() : 데이터가 어떻게 생겼는지를 나타내준다.
 str(teens)
+
+# table() : 예쁘게 원하는 자료 보기
 table(teens$gender, useNA = 'ifany')
 
 summary(teens$age)
@@ -57,6 +60,8 @@ table(teens$female, useNA = "ifany")
 table(teens$no_gender, useNA = "ifany")
 
 str(teens)
+View(teens)
+# View() : 데이터를 표시한다.
 
 
 aggregate(data=teens, age ~ gradyear, mean )
@@ -85,6 +90,8 @@ teens$age<-ifelse(is.na(teens$age), ave_age, teens$age)
 # 2006        NA       18.8 
 # ...              ...
 # 2009       15.3     15.8
+
+# 기초 통계값 구하기 - summary()
 summary(teens$age)
 
 head(teens,5)

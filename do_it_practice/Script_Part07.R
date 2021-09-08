@@ -126,10 +126,10 @@ table(is.na(df$score))
 
 # 결측치 제거
 df_nomiss <- df %>% filter(!is.na(score))
-
+df_nomiss
 # 여러 변수 동시에 결측치 제거
 df_nomiss <- df %>% filter(!is.na(score) & !is.na(sex))
-
+df_nomiss
 # 함수의 결측치 제외 기능 이용하기
 mean(df$score, na.rm = T)
 exam %>% summarise(mean_math = mean(math, na.rm = T))
@@ -148,4 +148,4 @@ boxplot(mpg$hwy)$stats
 
 # 극단치 결측 처리
 mpg$hwy <- ifelse(mpg$hwy < 12 | mpg$hwy > 37, NA, mpg$hwy)
-
+mpg
