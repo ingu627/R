@@ -124,14 +124,12 @@ low <- list()
 high <- list()
 
 for(i in 1:165){
-  low[i] <- abs(max(samsung$Low[i+1]-samsung$Low[i]))
-  high[i] <- abs(max(samsung$High[i+1]-samsung$High[i]))
+  low[i] <- abs((samsung$Low[i+1]-samsung$Low[i]))
+  high[i] <- abs((samsung$High[i+1]-samsung$High[i]))
 }
 
-data.frame(low1=c(low), high1=c(high))
 
-
-
+max(list(1,2,3))
 
 
 

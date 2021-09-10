@@ -28,7 +28,7 @@ sum(is.na(train$Embarked))
 library(ggplot2)
 qplot(train$Embarked)
 
-train$Embarked[train$Embarked ==''] = 'S'
+train$Embarked[train$Embarked ==''] = 'C'
 
 # install.packages("fastDummies")
 library(fastDummies)
@@ -41,7 +41,7 @@ train = cbind(train, for_dummy)
 train = train[,-7]
 train
 
-test$Embarked[test$Embarked ==''] = 'S'
+test$Embarked[test$Embarked ==''] = 'C'
 
 for_dummy = test[,6]
 table(for_dummy)
@@ -119,7 +119,7 @@ train = scale(train)
 test = scale(test)
 
 library(class)
-titanic_survive = knn(train, test, cl=train_y, k=)
+titanic_survive = knn(train, test, cl=train_y, k=12)
 titanic_survive
 
 # library(gmodels)
