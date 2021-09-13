@@ -4,7 +4,7 @@ myvector
 mylist<-list(1:6,'a')
 mylist
 
-형태소 -> 단어 -> 문장 -> 문단 -> 문서..
+# 형태소 -> 단어 -> 문장 -> 문단 -> 문서..
 
 obj1<-1:4
 obj2<-6:10
@@ -33,9 +33,12 @@ mylist[[3]][[1]][3]
 #unlist:리스트 -> 벡터
 
 myvector<-c(1:6,'a')
+myvector
 mylist<-list(1:6,'a')
+mylist
 
 myvector==unlist(mylist)
+myvector
 
 name1<-"Donald"
 myspace<-" "
@@ -51,6 +54,7 @@ unlist(list(name1, myspace, name2))
 name<-c("갑","을","병","정")
 gender<-c(2,1,1,2)
 mydata<-data.frame(name,gender)
+mydata
 attr(mydata$name, "var")<-"이름"
 mydata$name
 
