@@ -1,6 +1,7 @@
 library(ggplot2)
 library(ggthemes)
 # install.packages('ggthemes')
+# getwd()
 
 HR =read.csv('./HR_comma_sep.csv')
 HR$left = as.factor(HR$left)
@@ -14,7 +15,7 @@ ggplot(HR, aes(x=salary)) +
 # BW theme
 ggplot(HR, aes(x=salary)) +
   geom_bar(aes(fill=salary)) +
-  theme_bw()
+  theme_bw()ㅉㅉ
 
 Graph = ggplot(HR,aes(x=salary)) +  
   geom_bar(aes(fill=salary)) 
