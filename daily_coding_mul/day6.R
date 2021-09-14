@@ -31,7 +31,7 @@ mylist
 mylist[[3]][[1]][3]
 
 #unlist:리스트 -> 벡터
-
+# 리스트를 벡터로 변환하기
 myvector<-c(1:6,'a')
 myvector
 mylist<-list(1:6,'a')
@@ -47,7 +47,7 @@ list(name1, myspace, name2)
 unlist(list(name1, myspace, name2))
 
 #"Donald_Trump"
-
+# paste(name1, name2)
 #메타데이터(데이터의 데이터) : 데이터에 대한 설명
 #ex. 유튜브영상(데이터)에 달린 캡션,설명,제목,작성자...
 
@@ -55,12 +55,15 @@ name<-c("갑","을","병","정")
 gender<-c(2,1,1,2)
 mydata<-data.frame(name,gender)
 mydata
+# attr(변수이름, 속성이름) <- 속성 내용
 attr(mydata$name, "var")<-"이름"
 mydata$name
 
 attr(mydata$gender, "var")<-"성별"
+mydata$gender
 
 myvalues<-gender
+myvalues
 for(i in 1:length(mydata$gender)){
   myvalues[i]<-ifelse(gender[i]==1,"남성","여성")
 }
@@ -68,10 +71,12 @@ myvalues
 
 #속성값 저장
 attr(mydata$gender,"value")<-myvalues
+# 추가도 가능하다.
 mydata$gender
 
 #속성값 추출
 attr(mydata$gender,"value")
+# attributes(mydata$gender)
 
 # 축구 골 넣는 영상 검색
 # 기존 검색 : 유튜브 검색어로 '골인' -> 검색 결과(영상 제목, 메타데이터)
@@ -96,10 +101,10 @@ sapply(mylist[c(1,2)],sum)
 letters[22]
 LETTERS
 
-tolower("Hi")
-toupper("Hi")
+tolower("Hi") # 전부 소문자 바꿔줌
+toupper("Hi") # 전부 대문자 바꿔줌
 
-nchar("Korea")
+nchar("Korea") #문자 개수 반환
 nchar("한국")
 
 nchar("Korea", type='bytes')
@@ -108,18 +113,22 @@ nchar("한국", type='bytes')
 mysentence<-"Learning R is so interesting"
 #문장 -> 단어
 strsplit(mysentence, split=" ")
+
 #리스트의 첫번째 요소가 벡터, 벡터 내부에는 단어들이 요소값으로 저장
 unlist(strsplit(mysentence, split=" "))
 
 
 mywords<-strsplit(mysentence, split=" ")
+mywords
 mywords[[1]]
 
 strsplit(mywords[[1]][5], split="")
 
 myletters<-list(rep(NA,5))
-#length(mywords[[1]])
+length(mywords[[1]])
 #mywords에 저장된 모든 단어들에 대해 문자로 분해하시오.
+# List와 Vector의 차이점은 Vector는 한 가지 타입의 원소만 담을 수 있지만, List는 어떤 타입이든 담을 수 있다는 것이다.
+
 for (i in 1:length(mywords[[1]])){
   myletters[i]<-strsplit(mywords[[1]][i], split="")
 }
@@ -138,6 +147,7 @@ paste(myletters[[2]],collapse = '')
 paste(myletters[[5]],collapse = '')
 
 mywords2<-list(rep(NA,5))
+mywords2
 for(i in 1:5){
   mywords2[i]<-paste(myletters[[i]],collapse = '')
 }
@@ -168,7 +178,7 @@ length(rWikiSent[[2]])  #두번째 문단에는 문장이 4개
 
 
 rWikiWord<-list(NA,NA)
-
+# rWikiWord
 for(i in 1:2){
   rWikiWord[[i]]<-strsplit(rWikiSent[[i]], split=" ")
 }
@@ -181,9 +191,9 @@ regexpr("ing", mysentence) #정규표현식
 
 #패턴 매칭된 문자열의 시작위치 리턴
 loc.begin<-as.vector(regexpr("ing", mysentence)) #6
-
+# loc.begin
 loc.length<-attr(regexpr("ing", mysentence), "match.length") #3
-
+# loc.length
 #매치된 문자열의 종료위치
 loc.end<-loc.begin + loc.length -1
 loc.end
