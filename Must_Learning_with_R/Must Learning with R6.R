@@ -75,7 +75,7 @@ ggplot(HR,aes(x = salary)) +
   scale_y_continuous(expand = c(0,0),breaks = seq(0,8000,by = 1000)) +
   scale_fill_discrete(labels = c("하","중","상"))
 
-# 축범위 설정 
+# 축범위 설정 : 그래프를 표현할 범위를 나타낼 수가 있다.
 ggplot(HR,aes(x = salary)) +  
   geom_bar(aes(fill = salary)) +
   theme_bw() +
