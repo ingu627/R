@@ -1,16 +1,33 @@
-# install.packages('arules')
-library(arules)
+# install.packages('arules') #연관 분석을 위한 패키지 설치
+library(arules) # read.transactions() 함수 제공
 
 # read.csv('f:/data/groceries.csv')
 
-groceries=read.transactions('f:/data/groceries.csv', sep = ',')
+groceries=read.transactions('f:/data/groceries.csv', sep = ',') #트랜잭션 객체 생성
 #9835행 169열= 9835건의 거래, 169개 상품
+# read.transactions : 트랜잭션의 형태로 변형 - 필수 
+# sep : 각 상품(item)을 구분하는 구분자 지정
+
+#read.transactions(file, format=c("basket", "single"), 
+#      sep = NULL, cols=NULL, rm.duplicates=FALSE,encoding="unknown") 
+#------------------------------------------------------ 
+#file : file name 
+#format : data set의 형식 지정(basket 또는 single) 
+# -> single : 데이터 구성(2개 칼럼) -> transaction ID에 의해서 상품(item)이 대응된 경우 
+# -> basket : 데이터 셋이 여러개의 상품으로 구성 -> transaction ID 없이 여러 상품(item) 구성 
+#sep : 상품 구분자 
+#cols : single인 경우 읽을 컬럼 수 지정, basket은 생략(transaction ID가 없는 경우) 
+#rm.duplicates : 중복 트랜잭션 항목 제거 
+#encoding : 인코딩 지정 
+
+
 
 summary(groceries)
 
 groceries
 inspect(groceries)
 
+# inspect : 트랜잭션을 배열의 형태로 출력 
 inspect(groceries[1:10])
 
 itemFrequency(groceries)
@@ -96,6 +113,7 @@ inspect(mylist.trans)
 ##################################################
 #groceries 데이터 연관 규칙 생성 
 groceryrules<- apriori(groceries, parameter = list(support=0.006, confidence=0.25))
+# apriori = 규칙(발견견)
 
 groceryrules
 
@@ -122,10 +140,4 @@ groceryrules_df<-as(groceryrules, 'data.frame')
 groceryrules_df
 
 
-data(Epub)
-Epub
-
-# 의미있는 규칙들 추출 
-# 지지도, 신뢰도, 향상도 확인 
-# 많이 빌리는 도서 목록 
-# 함께 빌려지는 확류이 높은 도서 목록
+# 연관규칙(R) : https://kerpect.tistory.com/160
