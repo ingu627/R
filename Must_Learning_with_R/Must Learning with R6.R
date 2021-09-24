@@ -15,7 +15,7 @@ ggplot(HR, aes(x=salary)) +
 # BW theme
 ggplot(HR, aes(x=salary)) +
   geom_bar(aes(fill=salary)) +
-  theme_bw()ㅉㅉ
+  theme_bw()
 
 Graph = ggplot(HR,aes(x=salary)) +  
   geom_bar(aes(fill=salary)) 
